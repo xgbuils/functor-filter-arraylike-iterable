@@ -14,11 +14,15 @@ function methodGenerator (methodName) {
         const obj = Object.create(this.constructor.prototype)
         const lastIndex = this.lastIndex
         const last = this.cs[lastIndex] || {}
-        obj.cs = this.cs.concat([])
+        obj.cs = this.cs.map(({type, list}) => ({
+            type,
+            list
+        }))
+        obj.lastIndex = lastIndex
         if (last.type === methodName) {
             obj.cs[lastIndex].list = last.list.push(f)
         } else {
-            ++this.lastIndex
+            ++obj.lastIndex
             obj.cs.push({
                 type: methodName,
                 list: InmutableArray([f])
