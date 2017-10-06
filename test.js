@@ -144,6 +144,36 @@ test('filter', function (t) {
     t.end()
 })
 
+test('map & filter', function (t) {
+    t.test('map, then filter', function (st) {
+        const intermediate = new FunctorFilterIterable(array)
+            .map(e => 2 * e) // (2 4 6 8 10)
+        const first = intermediate
+            .filter(e => e <= 6) // (2 4 6)
+        const second = intermediate
+            .filter(e => e > 4) // (6 8 10)
+        st.deepEqual([...first], [2, 4, 6],
+            'first result must be correct')
+        st.deepEqual([...second], [6, 8, 10],
+            'second result must be correct')
+        st.end()
+    })
+    t.test('filter, then map', function (st) {
+        const intermediate = new FunctorFilterIterable(array)
+            .filter(e => e > 2) // (3 4 5)
+        const first = intermediate
+            .map(e => 2 * e) // (6 8 10)
+        const second = intermediate
+            .map(e => 3 * e) // (9 12 15)
+        st.deepEqual([...first], [6, 8, 10],
+            'first result must be correct')
+        st.deepEqual([...second], [9, 12, 15],
+            'second result must be correct')
+        st.end()
+    })
+    t.end()
+})
+
 test.createStream()
     .pipe(tapSpec())
     .pipe(process.stdout)
