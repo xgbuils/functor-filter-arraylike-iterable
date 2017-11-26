@@ -1,6 +1,6 @@
 {
   "name": "functor-filter-arraylike-iterable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Iterable that implements optimized map & filter methods for array-like iterables",
   "main": "index.js",
   "scripts": {
