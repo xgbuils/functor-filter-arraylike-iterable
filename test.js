@@ -16,7 +16,7 @@ test('constructor', function (t) {
         st.end()
     })
     t.test('non-empty array', function (st) {
-        const iterable = new FunctorFilterIterable(array, {})
+        const iterable = new FunctorFilterIterable(array)
         st.deepEqual([...iterable], array,
             'must return an iterable with the same values')
         st.end()
