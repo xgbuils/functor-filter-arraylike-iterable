@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/xgbuils/functor-filter-arraylike-iterable#readme",
   "devDependencies": {
-    "babel-register": "^6.24.1",
+    "babel-register": "^6.26.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "npm-check": "^5.7.0",
